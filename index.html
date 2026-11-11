@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
-    <title>دعوة زفاف مي ومحمود | Tia Vie, Oro Plaza</title>
-    <meta name="description" content="دعوة زفاف رقمية راقية لمي ومحمود - ٢٣ نوفمبر ٢٠٢٣ - Tia Vie, Oro Plaza" />
-    <meta property="og:title" content="دعوة زفاف مي ومحمود | Tia Vie, Oro Plaza" />
-    <meta property="og:description" content="يسرنا دعوتكم لمشاركتنا أجمل لحظات العمر في حفل زفافنا - ٢٣ نوفمبر ٢٠٢٣ - Tia Vie, Oro Plaza" />
+    <title>دعوة زفاف مي ومحمود | Tia Vie, Hotel Oro Plaza</title>
+    <meta name="description" content="دعوة زفاف رقمية راقية لمي ومحمود - ٢٣ نوفمبر ٢٠٢٣ - Tia Vie, فندق أورو بلازا" />
+    <meta property="og:title" content="دعوة زفاف مي ومحمود | Tia Vie, Hotel Oro Plaza" />
+    <meta property="og:description" content="يسرنا دعوتكم لمشاركتنا أجمل لحظات العمر في حفل زفافنا - ٢٣ نوفمبر ٢٠٢٣ - Tia Vie, فندق أورو بلازا" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -67,6 +67,103 @@
       body.envelope-closed {
         overflow: hidden;
         height: 100vh;
+      }
+
+      .language-gate {
+        position: fixed;
+        inset: 0;
+        z-index: 110;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: max(24px, env(safe-area-inset-top)) 22px max(24px, env(safe-area-inset-bottom));
+        background:
+          radial-gradient(ellipse at 50% 34%, rgba(116, 28, 39, 0.62), transparent 56%),
+          linear-gradient(155deg, #451018 0%, var(--bg-burgundy) 56%, #210308 100%);
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 650ms ease, visibility 650ms ease;
+      }
+
+      .language-gate.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .language-gate-content {
+        width: min(100%, 360px);
+        text-align: center;
+        color: var(--paper-cream);
+      }
+
+      .language-gate-monogram {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 104px;
+        height: 104px;
+        margin: 0 auto 30px;
+        border: 1px solid rgba(212, 175, 55, 0.7);
+        border-radius: 50%;
+        color: var(--gold-light);
+        font-family: var(--font-calligraphy);
+        font-size: 25px;
+        line-height: 1.15;
+        box-shadow: 0 0 34px rgba(212, 175, 55, 0.12), inset 0 0 18px rgba(212, 175, 55, 0.08);
+      }
+
+      .language-gate-monogram span {
+        display: block;
+        font-family: var(--font-latin);
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .language-gate-title {
+        margin: 0 auto 8px;
+        color: #fff7e2;
+        font-family: var(--font-calligraphy);
+        font-size: clamp(22px, 6vw, 28px);
+        line-height: 1.6;
+      }
+
+      .language-gate-subtitle {
+        margin: 0 auto 26px;
+        color: rgba(253, 251, 247, 0.74);
+        font-family: var(--font-latin);
+        font-size: 11px;
+        letter-spacing: 1.5px;
+      }
+
+      .language-gate-options {
+        display: grid;
+        gap: 12px;
+      }
+
+      .language-gate-button {
+        width: 100%;
+        min-height: 54px;
+        padding: 12px 18px;
+        border: 1px solid var(--gold-primary);
+        border-radius: 28px;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.07));
+        color: #fff0bd;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      }
+
+      .language-gate-button:hover,
+      .language-gate-button:focus-visible {
+        background: var(--gold-primary);
+        color: var(--bg-burgundy-deep);
+      }
+
+      .language-gate-button:active {
+        transform: scale(0.98);
       }
 
       /* Native Canvases */
@@ -299,12 +396,11 @@
       /* Glowing 3D Heart Wax Seal */
       .wax-seal-container {
         position: absolute;
-        bottom: -28px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         z-index: 30;
         display: flex;
-        flex-direction: column;
         align-items: center;
         pointer-events: auto;
         cursor: pointer;
@@ -331,33 +427,18 @@
         height: 100%;
       }
 
-      .seal-initials-heart {
+      .seal-instruction {
         position: absolute;
         top: 48%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-family: var(--font-calligraphy);
-        font-size: 22px;
+        font-size: 11px;
         font-weight: 700;
-        color: #fff9db;
-        text-shadow: 0 1px 2px #422a03, 0 0 10px rgba(255, 230, 150, 0.9);
+        color: #5d3b0a;
+        text-shadow: 0 1px 1px rgba(255, 248, 209, 0.8);
         pointer-events: none;
-        letter-spacing: 0.5px;
-      }
-
-      .seal-prompt {
-        margin-top: 8px;
-        font-size: 12px;
-        font-weight: 600;
-        color: #f7dfa1;
-        background: rgba(20, 2, 4, 0.85);
-        padding: 5px 16px;
-        border-radius: 16px;
-        border: 1px solid rgba(212, 175, 55, 0.45);
-        letter-spacing: 0.5px;
         white-space: nowrap;
-        animation: floatPrompt 2.6s infinite ease-in-out;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       }
 
       @keyframes heartBeat {
@@ -375,16 +456,6 @@
         }
         70% {
           transform: scale(1);
-        }
-      }
-
-      @keyframes floatPrompt {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-3px);
         }
       }
 
@@ -478,24 +549,40 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        margin-bottom: 12px;
-        padding: 0 6px;
+        margin: 8px auto 18px;
+        padding: 0 8px;
+        max-width: 520px;
       }
 
       .intro-ornament {
         color: var(--gold-primary);
-        font-size: 13px;
+        font-size: 16px;
         flex-shrink: 0;
       }
 
       .intro-sentence-text {
-        font-family: var(--font-naskh);
-        font-size: clamp(14px, 2.3vw, 17px);
-        color: #825838;
+        font-family: var(--font-calligraphy);
+        font-size: clamp(20px, 4vw, 26px);
+        color: #76521f;
         font-weight: 700;
-        letter-spacing: 0.3px;
-        line-height: 1.5;
+        letter-spacing: 0.15px;
+        line-height: 1.8;
         text-align: center;
+        text-shadow: 0 1px 10px rgba(212, 175, 55, 0.2);
+      }
+
+      .paper-section-divider {
+        width: min(72%, 340px);
+        height: 1px;
+        margin: 24px auto;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.34) 22%,
+          rgba(212, 175, 55, 0.52) 50%,
+          rgba(212, 175, 55, 0.34) 78%,
+          transparent
+        );
       }
 
       /* Delicate & Courteous Notes (No kids & Personal invitation) */
@@ -541,19 +628,20 @@
       /* Quranic Verse */
       .paper-quran-verse {
         font-family: var(--font-naskh);
-        font-size: clamp(12.5px, 2vw, 14.5px);
-        color: var(--text-ink-muted);
-        line-height: 1.6;
-        margin: 6px auto 14px;
+        font-size: clamp(14px, 2.2vw, 17px);
+        color: #6f5a3c;
+        line-height: 1.9;
+        margin: 0 auto 22px;
         max-width: 440px;
+        text-shadow: 0 1px 8px rgba(212, 175, 55, 0.12);
       }
 
       /* Hosts Invitation Section */
       .paper-hosts-section {
-        margin: 8px auto 18px;
+        margin: 18px auto 30px;
         max-width: 490px;
         text-align: center;
-        padding: 14px 16px;
+        padding: 16px 16px 18px;
         background: rgba(255, 255, 255, 0.75);
         border: 1px solid rgba(212, 175, 55, 0.4);
         border-radius: 14px;
@@ -582,49 +670,52 @@
       }
 
       .hosts-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        margin-bottom: 8px;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: stretch;
+        gap: 4px;
+        margin-bottom: 12px;
       }
 
       .host-item {
-        flex: 1;
-        min-width: 160px;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 6px 4px;
+        justify-content: flex-start;
+        padding: 8px 0;
       }
 
       .host-honorific {
         font-family: var(--font-naskh);
-        font-size: 12px;
+        font-size: clamp(10px, 3vw, 12px);
         color: #926715;
         font-weight: 600;
-        margin-bottom: 1px;
+        line-height: 1.5;
+        margin-bottom: 3px;
       }
 
       .host-name {
         font-family: 'Amiri', 'Alexandria', serif;
-        font-size: clamp(17px, 3.4vw, 20px);
+        font-size: clamp(15px, 4.3vw, 19px);
         font-weight: 700;
         color: #38080e;
-        line-height: 1.3;
+        line-height: 1.4;
+        white-space: nowrap;
       }
 
       .host-tag {
         font-family: var(--font-naskh);
-        font-size: 12px;
+        font-size: clamp(9px, 2.8vw, 11px);
         color: #725850;
-        margin-top: 2px;
+        line-height: 1.5;
+        margin-top: 3px;
+        white-space: nowrap;
       }
 
       .hosts-divider-amp {
         font-family: var(--font-serif);
-        font-size: 22px;
+        font-size: clamp(18px, 5vw, 22px);
         font-weight: 700;
         color: var(--gold-primary);
         align-self: center;
@@ -635,14 +726,14 @@
         font-size: clamp(12.5px, 2vw, 14px);
         color: #5c443b;
         line-height: 1.6;
-        margin-top: 6px;
+        margin-top: 8px;
         border-top: 1px dashed rgba(212, 175, 55, 0.3);
-        padding-top: 8px;
+        padding-top: 10px;
       }
 
       /* Groom & Bride Names - Prominent, Large, Explicit Arabic Font with Full Tashkeel */
       .paper-names-hero {
-        margin: 16px auto 18px;
+        margin: 24px auto 30px;
         text-align: center;
       }
 
@@ -727,15 +818,15 @@
         color: var(--text-ink);
         line-height: 1.8;
         max-width: 460px;
-        margin: 0 auto 24px;
+        margin: 0 auto 30px;
       }
 
       /* Cleanly Aligned Event Details (Text Alignment, NO Website Grid!) */
       .paper-event-details {
-        margin: 0 auto 26px;
+        margin: 0 auto 32px;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
         max-width: 420px;
       }
 
@@ -777,7 +868,7 @@
 
       /* Live Animated Countdown Timer (Subtle & Minimalist on Paper) */
       .paper-countdown-wrap {
-        margin: 0 auto 28px;
+        margin: 0 auto 34px;
         padding: 12px 18px;
         border-radius: 30px;
         background: rgba(212, 175, 55, 0.08);
@@ -849,8 +940,9 @@
       .floating-photo-card {
         position: absolute;
         width: clamp(160px, 38vw, 195px);
-        aspect-ratio: 4 / 3;
-        padding: 5px;
+        aspect-ratio: 1 / 1;
+        padding: 0;
+        overflow: hidden;
         background: #ffffff;
         border: 1px solid rgba(212, 175, 55, 0.45);
         border-radius: 10px;
@@ -864,7 +956,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 6px;
+        object-position: center;
+        border-radius: 9px;
         display: block;
         pointer-events: none;
       }
@@ -978,9 +1071,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 14px;
         flex-wrap: wrap;
-        margin-bottom: 36px;
+        margin-bottom: 28px;
       }
 
       .gold-outline-btn {
@@ -1021,9 +1114,8 @@
          Integrated seamlessly in paper card aesthetic
          ------------------------------------------------------------- */
       .paper-wishes-section {
-        border-top: 1px solid rgba(212, 175, 55, 0.3);
-        padding-top: 28px;
-        margin-top: 10px;
+        padding-top: 12px;
+        margin-top: 0;
         text-align: right;
       }
 
@@ -1114,6 +1206,14 @@
       }
 
       /* Wishes Feed on Paper */
+      .status-message {
+        min-height: 18px;
+        margin: 8px 0 0;
+        color: #725850;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
       .wishes-feed {
         display: flex;
         flex-direction: column;
@@ -1358,6 +1458,18 @@
     <canvas id="canvas-ambient"></canvas>
     <canvas id="canvas-burst"></canvas>
 
+    <section class="language-gate" id="language-gate" role="dialog" aria-modal="true" aria-labelledby="language-gate-title">
+      <div class="language-gate-content">
+        <div class="language-gate-monogram" aria-hidden="true">م &amp; م<span>M &amp; M</span></div>
+        <h1 class="language-gate-title" id="language-gate-title">اختر لغة الدعوة</h1>
+        <p class="language-gate-subtitle" lang="en" dir="ltr">SELECT YOUR INVITATION LANGUAGE</p>
+        <div class="language-gate-options">
+          <button class="language-gate-button" type="button" data-language="ar" lang="ar">اللغة العربية</button>
+          <button class="language-gate-button" type="button" data-language="en" lang="en">اللغة الإنجليزية</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Discreet Floating Audio & Re-close Controls -->
     <div class="floating-controls">
       <button id="btn-sound" class="discreet-btn" title="تشغيل / كتم الموسيقى الرومانسية" aria-label="Toggle Romantic Music">
@@ -1379,7 +1491,7 @@
     <!-- ==============================================================
          1. ENVELOPE COVER (CLOSED ENVELOPE)
          ============================================================== -->
-    <div id="envelope-viewport" class="envelope-viewport">
+    <div id="envelope-viewport" class="envelope-viewport" aria-hidden="true" inert>
       <div id="envelope-scene" class="envelope-scene">
         <div id="envelope" class="envelope">
           <div class="envelope-embroidery"></div>
@@ -1404,42 +1516,42 @@
             <p class="envelope-cover-en">Mahmoud & Mai</p>
           </div>
 
-          <!-- Flap & Glowing 3D Heart Gold Wax Seal -->
+          <!-- Flap -->
           <div id="envelope-flap" class="envelope-flap">
-            <div id="wax-seal-container" class="wax-seal-container" role="button" tabindex="0" aria-label="انقر لفتح الدعوة">
-              <div class="heart-seal">
-                <svg viewBox="0 0 100 90">
-                  <defs>
-                    <radialGradient id="goldHeartGrad" cx="38%" cy="32%" r="65%">
-                      <stop offset="0%" stop-color="#FFF8D1" />
-                      <stop offset="30%" stop-color="#FFDF73" />
-                      <stop offset="58%" stop-color="#D4AF37" />
-                      <stop offset="85%" stop-color="#9C6B14" />
-                      <stop offset="100%" stop-color="#694406" />
-                    </radialGradient>
-                    <radialGradient id="goldHeartInner" cx="45%" cy="40%" r="55%">
-                      <stop offset="0%" stop-color="#FFEFA8" />
-                      <stop offset="45%" stop-color="#D4AF37" />
-                      <stop offset="100%" stop-color="#80540C" />
-                    </radialGradient>
-                  </defs>
-                  <!-- 3D Molten Wax Heart Base -->
-                  <path
-                    d="M50 86 C25 68 5 50 5 28 C5 12 18 3 32 3 C41 3 47 8 50 14 C53 8 59 3 68 3 C82 3 95 12 95 28 C95 50 75 68 50 86 Z"
-                    fill="url(#goldHeartGrad)"
-                  />
-                  <!-- Inner Debossed Heart Ridge -->
-                  <path
-                    d="M50 77 C30 61 14 46 14 28 C14 16 23 9 33 9 C40 9 46 13 50 18 C54 13 60 9 67 9 C77 9 86 16 86 28 C86 46 70 61 50 77 Z"
-                    fill="url(#goldHeartInner)"
-                    stroke="#FFF0A8"
-                    stroke-width="1.4"
-                    stroke-dasharray="3 2"
-                  />
-                </svg>
-                <span class="seal-initials-heart">م & م</span>
-              </div>
-              <div class="seal-prompt">انقر على القلب لفتح الدعوة 🤍</div>
+          </div>
+
+          <div id="wax-seal-container" class="wax-seal-container" role="button" tabindex="0" aria-label="اضغط هنا لفتح الدعوة">
+            <div class="heart-seal">
+              <svg viewBox="0 0 100 90">
+                <defs>
+                  <radialGradient id="goldHeartGrad" cx="38%" cy="32%" r="65%">
+                    <stop offset="0%" stop-color="#FFF8D1" />
+                    <stop offset="30%" stop-color="#FFDF73" />
+                    <stop offset="58%" stop-color="#D4AF37" />
+                    <stop offset="85%" stop-color="#9C6B14" />
+                    <stop offset="100%" stop-color="#694406" />
+                  </radialGradient>
+                  <radialGradient id="goldHeartInner" cx="45%" cy="40%" r="55%">
+                    <stop offset="0%" stop-color="#FFEFA8" />
+                    <stop offset="45%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#80540C" />
+                  </radialGradient>
+                </defs>
+                <!-- 3D Molten Wax Heart Base -->
+                <path
+                  d="M50 86 C25 68 5 50 5 28 C5 12 18 3 32 3 C41 3 47 8 50 14 C53 8 59 3 68 3 C82 3 95 12 95 28 C95 50 75 68 50 86 Z"
+                  fill="url(#goldHeartGrad)"
+                />
+                <!-- Inner Debossed Heart Ridge -->
+                <path
+                  d="M50 77 C30 61 14 46 14 28 C14 16 23 9 33 9 C40 9 46 13 50 18 C54 13 60 9 67 9 C77 9 86 16 86 28 C86 46 70 61 50 77 Z"
+                  fill="url(#goldHeartInner)"
+                  stroke="#FFF0A8"
+                  stroke-width="1.4"
+                  stroke-dasharray="3 2"
+                />
+              </svg>
+              <span class="seal-instruction">اضغط هنا</span>
             </div>
           </div>
         </div>
@@ -1483,10 +1595,14 @@
           <span class="intro-ornament">✦</span>
         </div>
 
+        <div class="paper-section-divider" aria-hidden="true"></div>
+
         <!-- Poetic Verse -->
         <p class="paper-quran-verse">
           «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
         </p>
+
+        <div class="paper-section-divider" aria-hidden="true"></div>
 
         <!-- Host Invitation Section (الدعوة الكريمة من والدي العروسين) -->
         <div class="paper-hosts-section">
@@ -1495,9 +1611,9 @@
           
           <div class="hosts-container">
             <div class="host-item">
-              <span class="host-honorific">الدكتور</span>
+              <span class="host-honorific">الأستاذ</span>
               <h3 class="host-name">محمد أبو العينين</h3>
-              <span class="host-tag">والد الدكتور محمود</span>
+              <span class="host-tag">والد الأستاذ محمود</span>
             </div>
             
             <div class="hosts-divider-amp">&</div>
@@ -1513,6 +1629,8 @@
             بدعوة سيادتكم الكريمة لمشاركتنا فرحة العمر والاحتفاء بحفل زفاف قرة أعينهما
           </p>
         </div>
+
+        <div class="paper-section-divider" aria-hidden="true"></div>
 
         <!-- Groom & Bride Names in Forefront (Large, Prominent, Clear Arabic Font with Proper Tashkeel) -->
         <div class="paper-names-hero">
@@ -1543,6 +1661,8 @@
           فبوجودكم تكتمل فرحتنا ويسعد لقاؤنا
         </p>
 
+        <div class="paper-section-divider" aria-hidden="true"></div>
+
         <!-- Cleanly Aligned Event Details (Stationery Text Flow) -->
         <div class="paper-event-details">
           <!-- Date -->
@@ -1562,10 +1682,12 @@
           <!-- Venue -->
           <div class="event-line-item">
             <span class="event-label">المكان · Venue</span>
-            <span class="event-text-primary">قاعة Tia Vie - أورو بلازا</span>
-            <span class="event-text-sub">Tia Vie, Oro Plaza</span>
+            <span class="event-text-primary">قاعة Tia Vie - فندق أورو بلازا</span>
+            <span class="event-text-sub">Tia Vie, Hotel Oro Plaza</span>
           </div>
         </div>
+
+        <div class="paper-section-divider" aria-hidden="true"></div>
 
         <!-- Live Animated Countdown Timer (Runs actively from site open to wedding start) -->
         <div class="paper-countdown-wrap">
@@ -1593,24 +1715,28 @@
           </div>
         </div>
 
+        <div class="paper-section-divider" aria-hidden="true"></div>
+
         <!-- ==============================================================
              ORGANIC AUTONOMOUS FLOATING PHOTOS (الصور تتحرك لوحدها بشكل عشوائي)
              No captions, no text, no buttons, no lightbox
              ============================================================== -->
         <div class="organic-floating-gallery" id="floating-gallery" aria-label="لحظات مصورة عائمة">
-          <div class="floating-photo-card float-anim-1" title="لمسة وفاء">
-            <img src="/src/assets/images/wedding_hands_rings_1794228900170.jpg" alt="خاتم العهد" />
+          <div class="floating-photo-card float-anim-1" title="فندق أورو بلازا">
+            <img src="https://qa3at.com/storage/sites/2/OroPlazaHotel-7.jpg" alt="قاعة Tia Vie في فندق أورو بلازا" loading="lazy" decoding="async" />
           </div>
-          <div class="floating-photo-card float-anim-2" title="غروب المحبة">
-            <img src="/src/assets/images/wedding_couple_silhouette_1794228900737.jpg" alt="غروب المحبة" />
+          <div class="floating-photo-card float-anim-2" title="قاعة Tia Vie">
+            <img src="https://qa3at.com/storage/sites/2/OroPlazaHotel-2.jpg" alt="قاعة Tia Vie في فندق أورو بلازا" loading="lazy" decoding="async" />
           </div>
-          <div class="floating-photo-card float-anim-3" title="أزهار الفرح">
-            <img src="/src/assets/images/wedding_bride_bouquet_1794228902351.jpg" alt="أزهار الفرح" />
+          <div class="floating-photo-card float-anim-3" title="فندق أورو بلازا">
+            <img src="https://qa3at.com/storage/sites/2/OroPlazaHotel-8.jpg" alt="قاعة Tia Vie في فندق أورو بلازا" loading="lazy" decoding="async" />
           </div>
-          <div class="floating-photo-card float-anim-4" title="أمسية الحلم">
-            <img src="/src/assets/images/wedding_venue_ambiance_1794228901795.jpg" alt="أمسية الحلم" />
+          <div class="floating-photo-card float-anim-4" title="قاعة Tia Vie">
+            <img src="https://qa3at.com/storage/sites/2/OroPlazaHotel-7.jpg" alt="قاعة Tia Vie في فندق أورو بلازا" loading="lazy" decoding="async" />
           </div>
         </div>
+
+        <div class="paper-section-divider" aria-hidden="true"></div>
 
         <!-- Delicate & Tactful Notes (No kids & Named Invitees only) -->
         <div class="paper-delicate-notes">
@@ -1626,10 +1752,12 @@
           </p>
         </div>
 
+        <div class="paper-section-divider" aria-hidden="true"></div>
+
         <!-- Minimal Action Buttons (Gold Outline) -->
         <div class="paper-action-buttons">
-          <button id="btn-rsvp" class="gold-outline-btn">
-            <svg viewBox="0 0 24 24">
+          <button id="btn-rsvp" class="gold-outline-btn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <polyline points="16 11 18 13 22 9"/>
@@ -1658,6 +1786,8 @@
           </a>
         </div>
 
+        <div class="paper-section-divider" aria-hidden="true"></div>
+
         <!-- ==============================================================
              3. FRIENDS' WISHES SECTION (سجل تهاني الأصدقاء)
              ============================================================== -->
@@ -1668,81 +1798,64 @@
           </div>
 
           <!-- Minimalist Form -->
-          <form id="wish-form" class="wishes-form">
+          <form id="wish-form" class="wishes-form" action="https://formspree.io/f/myeerpyy" method="POST">
+            <input type="hidden" name="_subject" value="تهنئة جديدة بزفاف محمود ومي" />
             <div class="form-field">
               <label class="form-label" for="wish-author">اسم الصديق / الضيف *</label>
-              <input type="text" id="wish-author" class="paper-input" placeholder="اكتب اسمك الكريم هنا..." required />
+              <input type="text" id="wish-author" name="name" class="paper-input" placeholder="اكتب اسمك الكريم هنا..." autocomplete="name" required />
             </div>
 
             <div class="form-field">
               <label class="form-label" for="wish-text">التهنئة والكلمة الطيبة *</label>
-              <textarea id="wish-text" class="paper-textarea" placeholder="اكتب تهنئتك لمي ومحمود..." required></textarea>
+              <textarea id="wish-text" name="message" class="paper-textarea" placeholder="اكتب تهنئتك لمي ومحمود..." required></textarea>
             </div>
 
             <button type="submit" class="paper-submit-btn">إرسال التهنئة 🪄</button>
           </form>
 
-          <!-- List of Submitted Messages on Paper -->
-          <div id="wishes-feed" class="wishes-feed">
-            <!-- Dynamically populated from JS & localStorage -->
-          </div>
+          <p id="wish-status" class="status-message" role="status" aria-live="polite"></p>
+
+          <div id="wishes-feed" class="wishes-feed" aria-live="polite"></div>
         </section>
 
         <!-- Paper Card Footer -->
         <footer class="paper-footer">
           <div class="footer-monogram">مَحْمُودْ & مَيّ</div>
-          <p class="footer-sub-text">بكم تكتمل سعادتنا · ٢٣ نوفمبر ٢٠٢٣ · Tia Vie, Oro Plaza</p>
+          <p class="footer-sub-text">بكم تكتمل سعادتنا · ٢٣ نوفمبر ٢٠٢٣ · Tia Vie, Hotel Oro Plaza</p>
         </footer>
       </article>
     </main>
 
-    <!-- ==============================================================
-         RSVP POPUP OVERLAY (PAPER CARD STYLE)
-         ============================================================== -->
-    <div id="rsvp-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
+    <div id="rsvp-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="rsvp-modal-title">
       <div class="modal-paper-box">
-        <button id="rsvp-close" class="modal-close-btn" aria-label="إغلاق النافذة">✕</button>
-
-        <h3 id="rsvp-modal-title" class="modal-heading">تأكيد الحضور · RSVP</h3>
+        <button id="rsvp-close" class="modal-close-btn" type="button" aria-label="إغلاق النافذة">✕</button>
+        <h2 id="rsvp-modal-title" class="modal-heading">تأكيد الحضور · RSVP</h2>
         <p class="modal-sub">يسعدنا جداً تأكيد تشريفكم لمشاركتنا فرحة العمر</p>
 
-        <form id="rsvp-form">
+        <form id="rsvp-form" action="https://formspree.io/f/myeerpyy" method="POST">
+          <input type="hidden" name="_subject" value="تأكيد حضور زفاف محمود ومي" />
           <div class="form-field">
             <label class="form-label" for="guest-name">الاسم الكريم *</label>
-            <input type="text" id="guest-name" class="paper-input" placeholder="اكتب اسمك هنا..." required />
+            <input type="text" id="guest-name" name="name" class="paper-input" autocomplete="name" required />
           </div>
-
           <div class="form-field">
-            <label class="form-label">هل ستشرفنا بالحضور؟ *</label>
-            <div class="radio-choices">
-              <label class="radio-label">
-                <input type="radio" name="attendance" value="yes" checked />
-                <span class="radio-pill">
-                  <span>✨</span>
-                  <span>بكل سرور سأحضر</span>
-                </span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="attendance" value="no" />
-                <span class="radio-pill">
-                  <span>🤍</span>
-                  <span>أعتذر بكل أسف</span>
-                </span>
-              </label>
-            </div>
+            <label class="form-label" for="attendance">هل ستشرفنا بالحضور؟ *</label>
+            <select id="attendance" name="attendance" class="paper-input" required>
+              <option value="yes">بكل سرور سأحضر</option>
+              <option value="no">أعتذر بكل أسف</option>
+            </select>
           </div>
-
-          <div id="rsvp-count-wrap" class="form-field">
+          <div class="form-field">
             <label class="form-label" for="guests-count">عدد الأفراد</label>
-            <select id="guests-count" class="paper-input">
+            <select id="guests-count" name="guests" class="paper-input">
               <option value="1">شخص واحد (أنا فقط)</option>
-              <option value="2" selected>شخصان</option>
+              <option value="2">شخصان</option>
               <option value="3">٣ أشخاص</option>
               <option value="4">٤ أشخاص أو عائلة</option>
             </select>
           </div>
-
-          <button type="submit" class="paper-submit-btn">تأكيد الحضور 💌</button>
+          <button type="submit" class="paper-submit-btn">إرسال التأكيد 💌</button>
+          <p id="rsvp-status" class="status-message" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -1762,6 +1875,8 @@
 
         // --- DOM Elements ---
         const envelopeViewport = document.getElementById('envelope-viewport');
+        const languageGate = document.getElementById('language-gate');
+        const languageButtons = document.querySelectorAll('.language-gate-button');
         const envelopeScene = document.getElementById('envelope-scene');
         const waxSealContainer = document.getElementById('wax-seal-container');
         const paperCardContainer = document.getElementById('paper-card-container');
@@ -1771,19 +1886,13 @@
         const btnReclose = document.getElementById('btn-reclose');
         const btnCalendar = document.getElementById('btn-calendar');
 
-        // RSVP Elements
+        // Formspree Forms
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/myeerpyy';
         const btnRsvp = document.getElementById('btn-rsvp');
         const rsvpModal = document.getElementById('rsvp-modal');
         const rsvpClose = document.getElementById('rsvp-close');
         const rsvpForm = document.getElementById('rsvp-form');
-        const guestNameInput = document.getElementById('guest-name');
-        const rsvpCountWrap = document.getElementById('rsvp-count-wrap');
-
-        // Wishes Elements
         const wishForm = document.getElementById('wish-form');
-        const wishAuthorInput = document.getElementById('wish-author');
-        const wishTextInput = document.getElementById('wish-text');
-        const wishesFeed = document.getElementById('wishes-feed');
 
         // Toast
         const toast = document.getElementById('toast');
@@ -1799,6 +1908,19 @@
         let isAudioPlaying = false;
         let audioCtx = null;
         let ambientSoundInterval = null;
+
+        languageButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            document.documentElement.dataset.invitationLanguage = button.dataset.language;
+            languageGate.classList.add('hidden');
+            envelopeViewport.setAttribute('aria-hidden', 'false');
+            envelopeViewport.inert = false;
+            window.setTimeout(() => {
+              languageGate.hidden = true;
+              waxSealContainer.focus({ preventScroll: true });
+            }, 700);
+          });
+        });
 
         // --- Floating Photo Cards Interaction ---
         const floatingPhotoCards = document.querySelectorAll('.floating-photo-card');
@@ -1840,16 +1962,34 @@
         const ambientParticles = [];
         const AMBIENT_COUNT = 45;
 
+        function drawAmbientHeart(ctx, x, y, size, color, rotation) {
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.rotate(rotation);
+          ctx.fillStyle = color;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#FFD700';
+          ctx.beginPath();
+          ctx.moveTo(0, size * 0.35);
+          ctx.bezierCurveTo(0, 0, -size, 0, -size, size * 0.35);
+          ctx.bezierCurveTo(-size, size * 0.9, 0, size * 1.2, 0, size * 1.2);
+          ctx.bezierCurveTo(0, size * 1.2, size, size * 0.9, size, size * 0.35);
+          ctx.bezierCurveTo(size, 0, 0, 0, 0, size * 0.35);
+          ctx.fill();
+          ctx.restore();
+        }
+
         for (let i = 0; i < AMBIENT_COUNT; i++) {
           ambientParticles.push({
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
-            size: Math.random() * 2.2 + 0.8,
+            size: Math.random() * 7 + 4,
             speedY: -(Math.random() * 0.35 + 0.12),
             speedX: (Math.random() - 0.5) * 0.2,
             opacity: Math.random() * 0.7 + 0.2,
             pulseSpeed: Math.random() * 0.03 + 0.01,
             goldHue: Math.random() > 0.4 ? '#D4AF37' : '#FBE28C',
+            rotation: Math.random() * Math.PI * 2,
           });
         }
 
@@ -1860,6 +2000,7 @@
             p.y += p.speedY;
             p.x += p.speedX;
             p.opacity += Math.sin(Date.now() * p.pulseSpeed) * 0.005;
+            p.rotation += 0.01;
 
             if (p.y < -10) {
               p.y = window.innerHeight + 10;
@@ -1870,12 +2011,7 @@
 
             ctxAmbient.save();
             ctxAmbient.globalAlpha = Math.max(0.1, Math.min(0.85, p.opacity));
-            ctxAmbient.fillStyle = p.goldHue;
-            ctxAmbient.shadowBlur = 8;
-            ctxAmbient.shadowColor = '#FFD700';
-            ctxAmbient.beginPath();
-            ctxAmbient.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctxAmbient.fill();
+            drawAmbientHeart(ctxAmbient, p.x, p.y, p.size, p.goldHue, p.rotation);
             ctxAmbient.restore();
           }
 
@@ -2218,8 +2354,8 @@
 
         // --- GOOGLE CALENDAR LINK ---
         const eventTitle = encodeURIComponent('حفل زفاف محمود & مي | Wedding of Mahmoud & Mai');
-        const eventDetails = encodeURIComponent('يسرنا حضوركم ومشاركتنا فرحتنا بحفل الزفاف في Tia Vie, Oro Plaza. نرجو لأحبائنا الصغار نوماً هانئاً، والدعوة مخصصة لشخصكم الكريم.');
-        const eventLocation = encodeURIComponent('Tia Vie, Oro Plaza');
+        const eventDetails = encodeURIComponent('يسرنا حضوركم ومشاركتنا فرحتنا بحفل الزفاف في Tia Vie, فندق أورو بلازا. نرجو لأحبائنا الصغار نوماً هانئاً، والدعوة مخصصة لشخصكم الكريم.');
+        const eventLocation = encodeURIComponent('Tia Vie, Hotel Oro Plaza');
         const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=20231123T160000Z/20231123T210000Z&details=${eventDetails}&location=${eventLocation}`;
         btnCalendar.setAttribute('href', gcalUrl);
 
@@ -2234,156 +2370,74 @@
           }, 3400);
         }
 
-        // --- RSVP MODAL ---
+        async function submitForm(form, statusElement, successMessage) {
+          const submitButton = form.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          statusElement.textContent = '';
+
+          try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' },
+            });
+
+            if (!response.ok) {
+              throw new Error(`Formspree returned HTTP ${response.status}`);
+            }
+
+            form.reset();
+            statusElement.textContent = successMessage;
+            showToast(successMessage);
+            return true;
+          } catch (error) {
+            console.error('Form submission failed:', error);
+            statusElement.textContent = 'تعذّر إرسال النموذج. يرجى المحاولة مرة أخرى.';
+            return false;
+          } finally {
+            submitButton.disabled = false;
+          }
+        }
+
         btnRsvp.addEventListener('click', () => {
           rsvpModal.classList.add('open');
-          guestNameInput.focus();
+          rsvpModal.setAttribute('aria-hidden', 'false');
+          rsvpForm.querySelector('input[name="name"]').focus();
         });
 
-        rsvpClose.addEventListener('click', () => {
+        function closeRsvpModal() {
           rsvpModal.classList.remove('open');
-        });
-
-        const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
-        attendanceRadios.forEach((radio) => {
-          radio.addEventListener('change', (e) => {
-            if (e.target.value === 'no') {
-              rsvpCountWrap.style.display = 'none';
-            } else {
-              rsvpCountWrap.style.display = 'block';
-            }
-          });
-        });
-
-        rsvpForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const name = guestNameInput.value.trim();
-          const attendance = document.querySelector('input[name="attendance"]:checked').value;
-          const guestsCount = document.getElementById('guests-count').value;
-
-          try {
-            localStorage.setItem(
-              'wedding_rsvp_' + Date.now(),
-              JSON.stringify({ name, attendance, guestsCount, timestamp: new Date().toISOString() })
-            );
-          } catch (err) {
-            console.warn(err);
-          }
-
-          rsvpModal.classList.remove('open');
-          rsvpForm.reset();
-
-          triggerParticleBurst(window.innerWidth / 2, window.innerHeight / 2, 200);
-
-          if (attendance === 'yes') {
-            showToast(`أهلاً بك يا ${name}! نتشرف بحضورك ونسعد بلقائك 🤍`);
-          } else {
-            showToast(`شكراً لك يا ${name}، سنفتقد وجودك وتصلنا دعواتك 🤍`);
-          }
-        });
-
-        // --- FRIENDS' WISHES GUESTBOOK ---
-        const defaultWishes = [
-          {
-            author: 'عمر وأحمد كمال',
-            text: 'ألف ترليون مبروك لأجمل عروسين في الدنيا! بارك الله لكما وبارك عليكما وجمع بينكما في خير وسعادة دائمة يا رب 🤍',
-            time: 'منذ ساعتين',
-          },
-          {
-            author: 'سارة ونور الهدى',
-            text: 'مبارك من أعماق القلب يا مي ويا محمود، ربي يجعل أيامكم كلها حب وفرح وهناء، لا نطيق الانتظار للاحتفال معكما! ✨💍',
-            time: 'منذ ٣ ساعات',
-          },
-          {
-            author: 'كريم الشامي والعائلة',
-            text: 'أجمل تهنئة لأغلى الناس، ربي يديم المحبة والود بينكم ويجعلها بداية لحياة مليئة بالبركة والسرور 🎉',
-            time: 'منذ ٥ ساعات',
-          },
-        ];
-
-        function getStoredWishes() {
-          try {
-            const data = localStorage.getItem('wedding_paper_wishes');
-            if (data) return JSON.parse(data);
-          } catch (e) {
-            console.warn(e);
-          }
-          return defaultWishes;
+          rsvpModal.setAttribute('aria-hidden', 'true');
+          btnRsvp.focus();
         }
 
-        function saveStoredWishes(wishes) {
-          try {
-            localStorage.setItem('wedding_paper_wishes', JSON.stringify(wishes));
-          } catch (e) {
-            console.warn(e);
-          }
-        }
-
-        function renderWishesFeed() {
-          const wishes = getStoredWishes();
-          wishesFeed.innerHTML = '';
-
-          wishes.forEach((wish) => {
-            const item = document.createElement('div');
-            item.className = 'paper-wish-item';
-
-            item.innerHTML = `
-              <div class="wish-header">
-                <span class="wish-author-name">${escapeHTML(wish.author)}</span>
-                <span class="wish-timestamp">${escapeHTML(wish.time)}</span>
-              </div>
-              <p class="wish-body-text">${escapeHTML(wish.text)}</p>
-            `;
-
-            wishesFeed.appendChild(item);
-          });
-        }
-
-        function escapeHTML(str) {
-          return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;');
-        }
-
-        renderWishesFeed();
-
-        // Wish Form Submit
-        wishForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const author = wishAuthorInput.value.trim();
-          const text = wishTextInput.value.trim();
-
-          if (!author || !text) return;
-
-          const newWish = {
-            author,
-            text,
-            time: 'الآن',
-          };
-
-          const wishes = getStoredWishes();
-          wishes.unshift(newWish);
-          saveStoredWishes(wishes);
-          renderWishesFeed();
-
-          wishForm.reset();
-
-          const rect = e.target.getBoundingClientRect();
-          triggerParticleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 160);
-
-          showToast('شكراً لك! تمت إضافة تهنئتك العطرة بنجاح 🤍✨');
+        rsvpClose.addEventListener('click', closeRsvpModal);
+        rsvpModal.addEventListener('click', (event) => {
+          if (event.target === rsvpModal) closeRsvpModal();
         });
 
-        // Close modal when clicking backdrop or pressing Escape
-        window.addEventListener('click', (e) => {
-          if (e.target === rsvpModal) rsvpModal.classList.remove('open');
+        rsvpForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const submitted = await submitForm(
+            rsvpForm,
+            document.getElementById('rsvp-status'),
+            'شكراً لكم، وصلنا تأكيد حضوركم.'
+          );
+          if (submitted) closeRsvpModal();
         });
 
-        window.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            rsvpModal.classList.remove('open');
+        wishForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          await submitForm(
+            wishForm,
+            document.getElementById('wish-status'),
+            'شكراً لكم، أُرسلت تهنئتكم بنجاح.'
+          );
+        });
+
+        window.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && rsvpModal.classList.contains('open')) {
+            closeRsvpModal();
           }
         });
       })();
